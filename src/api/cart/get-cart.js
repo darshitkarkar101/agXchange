@@ -17,11 +17,6 @@ module.exports = exports = {
       let skip = (parseInt(req.query.page) - 1) * limit;
       let search = req.query.search
         ? {
-            $or: [
-              { name: { $regex: req.query.search, $options: "i" } },
-              { email: { $regex: req.query.search, $options: "i" } },
-              { phone: { $regex: req.query.search, $options: "i" } },
-            ],
           }
         : {};
 
@@ -63,7 +58,7 @@ module.exports = exports = {
           req: req,
           result: 0,
           message: messages.ITEM_FOUND,
-          payload: { card, count },
+          payload: { data:card, count },
           logPayload: false,
         };
         return res

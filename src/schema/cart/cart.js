@@ -11,6 +11,7 @@ module.exports = (connection) => {
       total : { type: Number },
       status : { type: String },
       description : { type: String },
+      fullStatus : { type: String },
       adminUserComments : { type: String },
       adminSellerComments : { type: String },
       sid : { type: mongoose.Schema.Types.ObjectId, ref: "admin" },
