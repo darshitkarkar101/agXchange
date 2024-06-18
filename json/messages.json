@@ -4,6 +4,8 @@
   "ADDRESS_DELETED": "The address has been deleted from your profile.",
   "ADDRESS_NOT_ADDED": "Some error occurred while creating the new address",
   "ALREADY_EXISTS": "The address already exists.",
+  "CART_CREATED": "Respond submitted successfully.",
+  "CART_UPDATED":"Respond updated successfully.",
   "ITEM_ADDED": "Item added to cart successfully.",
   "ITEM_ALREADY_EXISTS": "The item already exists.",
   "PRODUCT_ADDED": "Product added successfully.",

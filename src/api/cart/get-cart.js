@@ -34,6 +34,10 @@ module.exports = exports = {
         search.sid = sid;
       }
 
+      let status = req.query.status;
+      if (status) {
+        search.status = status;
+      }
       
       let count = await global.models.GLOBAL.CART.find(search).count();
       let card = await global.models.GLOBAL.CART.find(search)

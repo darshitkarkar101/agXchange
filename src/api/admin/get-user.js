@@ -23,7 +23,6 @@ module.exports = exports = {
 
       let role = req.query.role;
       if (role) {
-        console.log("Seller-->>>>>>>")
         search.role = ObjectID("6491020d7ad1814b989e9d10");
       }
    
@@ -33,7 +32,6 @@ module.exports = exports = {
         .limit(limit)
         .skip(skip);
 
-        console.log("user",user)
 
       if (user.length > 0) {
         let data4createResponseObject = {

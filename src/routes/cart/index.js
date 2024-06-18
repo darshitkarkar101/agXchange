@@ -9,7 +9,7 @@ const { profileUploadS3 } = require("../../s3FileUpload");
 
 router.get(
   "/getCart",
-  passport.authenticate(["jwt"], { session: false }),
+  // passport.authenticate(["jwt"], { session: false }),
   cartApi.getCart.handler
 );
 
