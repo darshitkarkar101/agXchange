@@ -1,7 +1,7 @@
 const argv = require("yargs").argv;
 // const { assign, isEmpty } = require("lodash");
 
-const { NODE_ENV = "local", APP_PORT = "6000" } = process.env
+const { NODE_ENV = "local", APP_PORT = "3009" } = process.env
 
 const packageInfo = require("../../package.json");
 
