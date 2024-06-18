@@ -10,22 +10,22 @@ module.exports = exports = {
   // route validation
   validation: Joi.object({
     uid : Joi.string().required(),
-    product : Joi.array(),
-    total : Joi.number()
+    pid : Joi.string().required(),
+    description : Joi.string().required(),
   }),
   handler: async (req, res) => {
     const { user } = req;
     const {
       uid,
-      product,
-      total,
+      pid,
+      description,
     } = req.body;
     try {
       let cartData = {
         uid: uid,
-        product : product,
-        total : total,
-        status : "pending",
+        pid : pid,
+        status : "requested",
+        description : description,
       };
       const createCart = await global.models.GLOBAL.CART.create(cartData);
 

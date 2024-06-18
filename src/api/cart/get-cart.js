@@ -17,7 +17,11 @@ module.exports = exports = {
       let skip = (parseInt(req.query.page) - 1) * limit;
       let search = req.query.search
         ? {
-            $or: [{ text: { $regex: req.query.search, $options: "i" } }],
+            $or: [
+              { name: { $regex: req.query.search, $options: "i" } },
+              { email: { $regex: req.query.search, $options: "i" } },
+              { phone: { $regex: req.query.search, $options: "i" } },
+            ],
           }
         : {};
 
@@ -30,8 +34,9 @@ module.exports = exports = {
         search._id = id;
       }
 
-      if(req.query.qty =="true"){
-        
+      let sid = req.query.sid;
+      if (sid) {
+        search.sid = sid;
       }
 
       
@@ -42,28 +47,23 @@ module.exports = exports = {
           model: "admin",
         })
         .populate({
-          path: "product.pid",
+          path: "pid",
           model: "product",
+        })
+        .populate({
+          path : "sid",
+          model : "admin"
         })
         .sort({ createdAt: -1 })
         .limit(limit)
         .skip(skip);
-
-        let total = 0;
-
-        for (let i = 0; i < card.length; i++) {
-          let findProduct = await global.models.GLOBAL.PRODUCT.findOne({
-            _id: card[i].product[0].pid,
-          });
-          total = total + findProduct.price;
-        }
 
       if (card.length > 0) {
         let data4createResponseObject = {
           req: req,
           result: 0,
           message: messages.ITEM_FOUND,
-          payload: { card, count , total },
+          payload: { card, count },
           logPayload: false,
         };
         return res
