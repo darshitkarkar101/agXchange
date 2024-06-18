@@ -59,7 +59,7 @@
    ),
    transports: [
      new transports.Console({
-       format: NODE_ENV === "local" ? localFormat : formatRemote,
+       format: NODE_ENV === "local" ? localFormat : undefined,
        name: "log-console",
        level: "debug",
        handleExceptions: true,
