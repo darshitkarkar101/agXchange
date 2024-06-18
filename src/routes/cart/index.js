@@ -21,7 +21,7 @@ router.post(
 
 router.put(
   "/updateCart/:id",
-  passport.authenticate(["jwt"], { session: false }),
+  // passport.authenticate(["jwt"], { session: false }),
   cartApi.updateCart.handler
 );
 
