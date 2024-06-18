@@ -19,4 +19,10 @@ router.post(
   adminApi.adminSignup.handler
 );
 
+
+// Get User
+router.get(
+  "/get-user",
+  adminApi.getUser.handler
+);
 module.exports = exports = router;

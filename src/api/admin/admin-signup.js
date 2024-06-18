@@ -62,11 +62,14 @@ module.exports = exports = {
     });
 
     const uid = new ObjectId();
+
+    const fullName = `${firstName} ${lastName}`;
     const adminObject = {
       _id: uid,
       email: email,
       password: password,
       firstName: firstName,
+      fullName: fullName,
       lastName: lastName,
       role: rolename,
       status: {
@@ -104,11 +107,13 @@ module.exports = exports = {
       date: new Date(),
       scope: "verification",
     };
+
     const payload = {
       admin:{
         _id: adminObject._id,
         email: adminObject.email,
         firstName: adminObject.firstName,
+        fullName: adminObject.fullName,
         lastName: adminObject.lastName,
         avatarName: adminObject.avatarName,
         avatarPic: adminObject.avatarPic,

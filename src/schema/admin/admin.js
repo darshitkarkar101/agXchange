@@ -6,6 +6,7 @@ module.exports = (connection) => {
     {
       firstName: { type: String },
       lastName: { type: String },
+      fullName: { type: String },
       email: { type: String },
       country: { type: String, default: null },
       contact: { type: Number },
